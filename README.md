@@ -27,6 +27,7 @@ application up and running.
 
 * Description <br />
 This is the pet-project to learn some basics of Ruby on Rails framework and popular gems <br />
+This application is conceived as a platform for searching, buying, selling, renting real estate. It has a very simple frontend on bootstrap 5.1.
 * gems currently in use: <br />
  'devise' for account managment<br />
  'carrierwave' for image uploading to server.

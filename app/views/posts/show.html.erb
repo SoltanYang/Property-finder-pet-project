@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold"><%= @post.title %></h1>
+      <p class="text-muted p-lg-2"><em>Posted <%= time_ago_in_words @post.created_at %></em></p>
+    </div>
+  </div>
+  <%= simple_format @post.body %>
+
+  <p><%= link_to "View latest blog posts", blog_path %></p>
+</div>

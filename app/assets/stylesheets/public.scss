@@ -1,0 +1,17 @@
+// Place all the styles related to the public controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#notification {
+  display: none;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+#home-banner .banner {
+  background: image-url("banner-home1.jpg") no-repeat center center;
+  p h1 {
+    text-shadow: 1px 1px 1px #808080;
+  }
+}

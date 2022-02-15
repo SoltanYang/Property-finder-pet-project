@@ -1,0 +1,29 @@
+<main class="flex-shrink-0" id="home-banner">
+  <div class="container banner">
+    <div class="p-5 mb-4 rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Search for your new home today...</h1>
+        <p class="col-md-8 fs-4">Choose from hundreds of beautiful villas and apartments.</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="latest_properties">
+    <div class="container px-4 py-5" id="featured-3">
+      <h3>Latest Properties</h3>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <%= render 'properties/list', properties: @properties %>
+      </div>
+    </div>
+  </section>
+
+  <section id="latest_posts">
+    <div class="container px-4 py-5" id="featured-3">
+      <h3>Latest News</h3>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <%= render 'posts/list', posts: @posts %>
+      </div>
+    </div>
+  </section>
+
+</main>

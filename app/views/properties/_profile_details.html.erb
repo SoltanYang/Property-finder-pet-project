@@ -1,0 +1,12 @@
+<div class="text-center border-1 p-3 ml-3">
+  <div class="mb-2">
+    <%= profile_picture @account %>
+  </div>
+  <h3 class="h4"><%= @account.full_name %></h3>
+  <p><%= @account.company %></p>
+
+  <button class="btn btn-info text-uppercase" id="show-tel" data-telephone="<%= @account.telephone %>">
+    <i class="fa-solid fa-phone"></i><span>Call</span></button>
+
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendEmailModal">Email</button>
+</div>

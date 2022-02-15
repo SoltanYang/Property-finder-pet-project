@@ -1,0 +1,15 @@
+<div class="text-center border-1 p-3 ml-3">
+  <div class="mb-2">
+    <%= profile_picture agent %>
+  </div>
+  <h3 class="h4"><%= agent.full_name %></h3>
+  <p><%= agent.company %></p>
+
+  <div class="d-grid gap-2 mb-2">
+    <button class="btn btn-block btn-info text-uppercase" id="show-tel" data-telephone="<%= agent.telephone %>"><i class="fa-solid fa-phone"></i><span>Call</span></button>
+  </div>
+
+
+  <%= link_to "Profile", profile_path(agent.id), class:"btn btn-secondary text-uppercase" %>
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sendEmailModal">Email</button>
+</div>

@@ -1,0 +1,106 @@
+<div class="property-main-photo" style="background-image:url('<%= property_photo_url @property %>')">
+  <div class="photo-overlay">
+
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-8">
+
+      <div class="row">
+        <div class="col-sm-4">
+          <p class="h4 mb-2"><%= @property.for_sale? ? "For sale" : "For Rent" %></p>
+          <p class="mb-0"><%= @property.address %></p>
+          <p class="h2">
+            <% if @property.for_sale? %>
+              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Offers Accepted" %>
+            <% else %>
+              <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Open for enquiries" %> /
+              month
+            <% end %>
+          </p>
+        </div>
+
+        <div class="col-lg-8 text-center">
+          <div class="row mr-3 bg-light p-3">
+            <div class="col-4">
+              <p class="m-0"><strong><i class="fa-solid fa-bed mx-1 text-muted"></i></strong></p>
+              <span class="lead"><%= @property.rooms %> Rooms</span>
+            </div>
+            <div class="col-4">
+              <p class="m-0"><strong><i class="fa-solid fa-shower mx-1 text-muted"></i></strong></p>
+              <span class="lead"><%= @property.bathrooms %> Bathrooms</span>
+            </div>
+            <div class="col-4">
+              <p class="m-0"><strong><i class="fa-solid fa-car mx-1 text-muted"></i></strong></p>
+              <span class="lead"><%= @property.parking_spaces %> Parking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom mt-3 mb-3 pt-4 pb-4">
+        <div class="col-6">
+          <strong>
+            <% if @property.for_sale? %>
+              <%= link_to "Est. monthly repayments
+            of #{number_to_currency(((@property.price - @property.price * 0.1) / 360), precision: 0)}", '#', class: 'text-success' %>
+            <% else %>
+              <strong><%= @property.available_date.strftime("%a") %>, <%= @property.available_date.day.ordinalize %>
+                <%= @property.available_date.strftime("%B") %></strong>
+            <% end %>
+          </strong>
+        </div>
+        <div class="col-6 text-end">
+          <strong><%= link_to "Can I afford this property?", '#', class: 'text-success' %></strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="h3"><%= @property.name %></p>
+          <p class="h4">Property description</p>
+          <div id="property-details">
+            <%= simple_format @property.details %>
+          </div>
+
+          <button class="btn btn-outline-info mt-3" id="toggleDetails">Read more</button>
+
+          <% if @property.for_sale? %>
+            <p class="my-3">* This rate is based on a 30 year mortgage, after paying an initial 10% down payment.
+              Shorter term mortages would require a higher monthly repayment</p>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+      <%= render 'properties/agent_details', agent: @agent %>
+
+      <div style="overflow:hidden;width: 320px;position: relative;">
+        <iframe width="320" height="240" src="https://maps.google.com/maps?width=320&amp;height=240&amp;hl=en&amp;q=London%2C%20United%20Kingdom+(Title)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
+          <small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by
+            <a href="https://embedgooglemaps.com/">Embed Google Maps</a> &
+            <a href="https://xn--casinoutanspelgrnser-qzb.nu/">https:/casinoutanspelgränser.nu/</a></small></div>
+        <style>#gmap_canvas img {
+            max-width: none !important;
+            background: none !important
+        }</style>
+      </div>
+      <br/>
+    </div>
+  </div>
+
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <p class="h2">Other properties by this agent</p>
+        <%= render 'properties/list', properties: @agent_properties %>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Modal -->
+<%= render "send_email_modal", agent: @agent %>

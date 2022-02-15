@@ -8,7 +8,7 @@ application up and running.
 * System dependencies
   Rails 6.1.4.4
   <br />
-  Only for windows users!
+  <strong>Note only for windows users!</strong><br />
   To run gem 'rmagick' need program imageMagick 7.1 to be installed on computer
 * Configuration
   
